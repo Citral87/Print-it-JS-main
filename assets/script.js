@@ -1,3 +1,6 @@
+/*array src*/
+
+
 const slides = [
   {
     image: "slide1.jpg",
@@ -18,15 +21,17 @@ const slides = [
   },
 ];
 
+/*myconstances*/
+
 const banner = document.querySelector("#banner");
 const bannerImages = banner.querySelector(".banner-img");
 const bannerText = banner.querySelector("#banner-txt");
 const dots = banner.querySelectorAll(".dot");
 const arrowLeft = banner.querySelector(".arrow_left");
 const arrowRight = banner.querySelector(".arrow_right");
-
+/* index var*/
 let currentSlideIndex = 0;
-
+/*arrow*/
 arrowLeft.addEventListener("click", function (e) {
   currentSlideIndex--;
   if (currentSlideIndex < 0) {
@@ -48,15 +53,17 @@ arrowRight.addEventListener("click", function (e) {
   updateBanner();
 });
 
+/*fonction img change*/
 function updateBanner() {
   bannerImages.src =
     "./assets/images/slideshow/" + slides[currentSlideIndex].image;
 
-  /* bannerImages.innerHTML = slides[currentSlideIndex].image;*/
+  /*text change*/
 
   bannerText.innerHTML = slides[currentSlideIndex].tagLine;
 
-  dots.forEach(function (dot, index) {
+ /* dot change*/
+  dots.forEach((dot, index) => { 
     if (index === currentSlideIndex) {
       dot.classList.add("dot_selected");
     } else {
